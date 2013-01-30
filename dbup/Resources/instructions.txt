@@ -1,5 +1,5 @@
 dbup -c <connection-string> [-f <path-to-sql>] [-t <versioning-table>] 
-     [-i <initial-file>] [-p <db-provider>]
+     [-i <initial-file> | -a <after-file>] [-p <db-provider>]
 
 Options:
 -c	specifies the connection string of the database to connect to
@@ -13,6 +13,8 @@ Options:
 
 -i	the initial file overrides versioning and runs the file specified by
 	<initial-file> and all subsequent files
+
+-a	run all files whose name is greater than <after-file>
 
 -p	the database provider
 	defaults to "postgres"

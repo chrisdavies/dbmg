@@ -11,6 +11,7 @@
         public string MigrationsPath { get; set; }
         public string TableName { get; set; }
         public string InitialFile { get; set; }
+        public string AfterFile { get; set; }
 
         public string InitialFilePath
         {
@@ -46,6 +47,11 @@
                 throw new ArgumentException("Could not find path " + MigrationsPath);
             }
 
+            if (!string.IsNullOrEmpty(InitialFile) && !string.IsNullOrEmpty(AfterFile))
+            {
+                throw new ArgumentException("You cannot specify both the -a and the -i options.");
+            }
+
             if (!string.IsNullOrEmpty(InitialFile) && !File.Exists(InitialFilePath))
             {
                 throw new ArgumentException("Could not find file " + InitialFilePath);
@@ -60,7 +66,8 @@
                 { "-f", (val) => MigrationsPath = val },
                 { "-t", (val) => TableName = val },
                 { "-i", (val) => InitialFile = val },
-                { "-p", (val) => Provider = val }
+                { "-p", (val) => Provider = val },
+                { "-a", (val) => AfterFile = val }
             };
 
             var args = Environment.GetCommandLineArgs();

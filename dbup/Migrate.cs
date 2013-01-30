@@ -38,7 +38,7 @@
                 lastFile = file;
             }
 
-            versioning.LatestVersion = Path.GetFileName(lastFile);
+            versioning.LatestVersion = string.IsNullOrEmpty(lastFile) ? args.AfterFile : Path.GetFileName(lastFile);
         }
 
         private void RunFile(IDbConnection db, string file)
@@ -65,7 +65,7 @@
         private IEnumerable<string> SqlFiles()
         {
             var files = Directory.GetFiles(args.MigrationsPath).OrderBy(s => s);
-            var latestVersion = versioning.LatestVersion;
+            var latestVersion = args.AfterFile ?? versioning.LatestVersion;
 
             if (!string.IsNullOrEmpty(args.InitialFile))
             {
