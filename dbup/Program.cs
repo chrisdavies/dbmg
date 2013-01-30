@@ -9,22 +9,14 @@
         {
             try
             {
-                var args = new ProgramArgs();
+                new Migrate(new ProgramArgs()).Execute();
             }
             catch (ArgumentException ex)
             {
-                Log(ConsoleColor.Red, ex.Message);
+                Logger.WriteLine(ConsoleColor.Red, ex.Message);
             }
         }
-
-        public static void Log(ConsoleColor color, string line, params object[] p)
-        {
-            var original = Console.ForegroundColor;
-            Console.ForegroundColor = color;
-            Console.WriteLine(line, p ?? new object[] { });
-            Console.ForegroundColor = original;
-        }
-
+        
         private static void Help()
         {
             Console.WriteLine(Resources.Instructions);
