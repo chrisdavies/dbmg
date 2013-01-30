@@ -13,7 +13,7 @@ The current version of a database is tracked by a table called "dbup" (again, th
 ## Usage
 
 1. Drop some sql files in the "db" directory
-2. Run: dbup -c <your-connection-string>
+2. Run: dbup -c &lt;your-connection-string&gt;
 3. Make a cocktail.
 
 ## Down support
@@ -26,7 +26,7 @@ If you've inherited an existing, unversioned database, you can still use dbup. J
 
 1. Generate you database creation script.
 2. Drop it into the "db" folder with a low name like "0000-initialdb.sql"
-3. Run: dbup -a "0000-initialdb.sql" -c <your-connection-string>
+3. Run: dbup -a "0000-initialdb.sql" -c &lt;your-connection-string&gt;
 
 This will tell dbup that this databse already contains the logic found in "0000-initialdb.sql".
 
