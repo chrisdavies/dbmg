@@ -1,5 +1,5 @@
-dbup [-c <connection-string>] [-f <path-to-sql>] [-t <versioning-table>] 
-     [-i <initial-version>]
+dbup -c <connection-string> [-f <path-to-sql>] [-t <versioning-table>] 
+     [-i <initial-file>] [-p <db-provider>]
 
 Options:
 -c	specifies the connection string of the database to connect to
@@ -11,7 +11,10 @@ Options:
 -t	the name of the table to create and use for tracking db version info
 	defaults to "dbup"
 
--i	the initial version (only use on existing databases which are currently 
-	unversioned) this specifies the initial file to run on the db
+-i	the initial file overrides versioning and runs the file specified by
+	<initial-file> and all subsequent files
+
+-p	the database provider
+	defaults to "postgres"
 
 For more information, see: https://github.com/chrisdavies/dbup
