@@ -38,4 +38,6 @@ This will tell dbmg that this databse already contains the logic found in "0000-
 
 ## Get dbmg
 
-A nuget package is forthcoming.  Let me know if you have any issues.  Happy migrations!
+Install-Package dbmg
+
+Let me know if you have any issues.  Happy migrations!
