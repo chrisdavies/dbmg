@@ -1,6 +1,6 @@
-﻿namespace DBUp
+﻿namespace DBMG
 {
-    using DBUp.Properties;
+    using DBMG.Properties;
     using System;
 
     internal class Program

@@ -1,4 +1,4 @@
-﻿namespace DBUp
+﻿namespace DBMG
 {
     using System;
     using System.Collections.Generic;
@@ -32,7 +32,7 @@
         {
             Provider = "postgres";
             MigrationsPath = "./db";
-            TableName = "dbup";
+            TableName = "dbmg";
         }
 
         private void Validate()

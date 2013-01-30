@@ -1,4 +1,4 @@
-﻿namespace DBUp
+﻿namespace DBMG
 {
     using Dapper;
     using System.Data;

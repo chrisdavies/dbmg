@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DBUp.Properties {
+namespace DBMG.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace DBUp.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DBUp.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DBMG.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,20 @@ namespace DBUp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to dbup [-c &lt;connection-string&gt;] [-f &lt;path-to-sql&gt;] [-t &lt;versioning-table&gt;] 
-        ///     [-i &lt;initial-version&gt;]
+        ///   Looks up a localized string similar to dbmg -c &lt;connection-string&gt; [-f &lt;path-to-sql&gt;] [-t &lt;versioning-table&gt;] 
+        ///     [-i &lt;initial-file&gt; | -a &lt;after-file&gt;] [-p &lt;db-provider&gt;]
         ///
         ///Options:
         ///-c	specifies the connection string of the database to connect to
-        ///	defaults to the &quot;default&quot; connection string in dbup.config
+        ///	defaults to the &quot;default&quot; connection string in dbmg.config
         ///
         ///-f	the path to the directory containing the sql files to use in the migration
         ///	defaults to &quot;./db&quot;
         ///
         ///-t	the name of the table to create and use for tracking db version info
-        ///	defaults to &quot;dbup&quot;
+        ///	defaults to &quot;dbmg&quot;
         ///
-        ///-i	the initial version (only use on existing databases which are curr [rest of string was truncated]&quot;;.
+        ///-i	the initial file overrides version [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Instructions {
             get {

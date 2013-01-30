@@ -1,15 +1,15 @@
-dbup -c <connection-string> [-f <path-to-sql>] [-t <versioning-table>] 
+dbmg -c <connection-string> [-f <path-to-sql>] [-t <versioning-table>] 
      [-i <initial-file> | -a <after-file>] [-p <db-provider>]
 
 Options:
 -c	specifies the connection string of the database to connect to
-	defaults to the "default" connection string in dbup.config
+	defaults to the "default" connection string in dbmg.config
 
 -f	the path to the directory containing the sql files to use in the migration
 	defaults to "./db"
 
 -t	the name of the table to create and use for tracking db version info
-	defaults to "dbup"
+	defaults to "dbmg"
 
 -i	the initial file overrides versioning and runs the file specified by
 	<initial-file> and all subsequent files
@@ -19,4 +19,4 @@ Options:
 -p	the database provider
 	defaults to "postgres"
 
-For more information, see: https://github.com/chrisdavies/dbup
+For more information, see: https://github.com/chrisdavies/dbmg

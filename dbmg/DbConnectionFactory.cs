@@ -1,4 +1,4 @@
-﻿namespace DBUp
+﻿namespace DBMG
 {
     using System;
     using System.Collections.Generic;
