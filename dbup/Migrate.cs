@@ -9,30 +9,36 @@
 
     public class Migrate
     {
-        public ProgramArgs Args { get; set; }
+        private ProgramArgs args;
+        private MigrationVersioning versioning;
 
         public Migrate(ProgramArgs args)
         {
-            this.Args = args;
+            this.args = args;
         }
 
         public void Execute()
         {
-            using (var db = DbConnectionFactory.Load(Args.Provider))
+            using (var db = DbConnectionFactory.Load(args.Provider))
             {
-                db.ConnectionString = Args.ConnectionString;
+                db.ConnectionString = args.ConnectionString;
                 db.Open();
 
+                versioning = new MigrationVersioning(db, args);
                 Execute(db);
             }
         }
 
         private void Execute(IDbConnection db)
         {
+            var lastFile = string.Empty;
             foreach (var file in SqlFiles())
             {
                 RunFile(db, file);
+                lastFile = file;
             }
+
+            versioning.LatestVersion = Path.GetFileName(lastFile);
         }
 
         private void RunFile(IDbConnection db, string file)
@@ -58,8 +64,19 @@
 
         private IEnumerable<string> SqlFiles()
         {
-            var files = Directory.GetFiles(Args.MigrationsPath);
-            return string.IsNullOrEmpty(Args.InitialFile) ? files : files.Where(f => string.Compare(Path.GetFileName(f), Args.InitialFile, System.StringComparison.OrdinalIgnoreCase) >= 0);
+            var files = Directory.GetFiles(args.MigrationsPath).OrderBy(s => s);
+            var latestVersion = versioning.LatestVersion;
+
+            if (!string.IsNullOrEmpty(args.InitialFile))
+            {
+                return files.Where(f => string.Compare(Path.GetFileName(f), args.InitialFile, System.StringComparison.OrdinalIgnoreCase) >= 0);
+            }
+            else if (!string.IsNullOrEmpty(latestVersion))
+            {
+                return files.Where(f => string.Compare(Path.GetFileName(f), latestVersion, System.StringComparison.OrdinalIgnoreCase) > 0);
+            }
+
+            return files;
         }
     }
 }

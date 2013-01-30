@@ -61,6 +61,7 @@
     <Compile Include="DbConnectionFactory.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Migrate.cs" />
+    <Compile Include="MigrationVersioning.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ProgramArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
