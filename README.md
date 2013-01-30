@@ -16,6 +16,12 @@ The current version of a database is tracked by a table called "dbup" (again, th
 2. Run: dbup -c &lt;your-connection-string&gt;
 3. Make a cocktail.
 
+## Supported databases
+
+The default database is postgres, but you can also specify the -p commandline option.  Possible values are "mssql" for Microsoft sql server, and "mysql" for my sql.
+
+Most defaults can be overriden. Run dbup with no parameters in order to see the possible commandline options.
+
 ## Down support
 
 Down operations are not supported.  Back up your databse before running migrations, and restore from that backkup, if things get botched.
