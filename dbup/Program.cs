@@ -14,6 +14,7 @@
             catch (ArgumentException ex)
             {
                 Logger.WriteLine(ConsoleColor.Red, ex.Message);
+                Help();
             }
         }
         
