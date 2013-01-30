@@ -1,0 +1,17 @@
+dbup [-c <connection-string>] [-f <path-to-sql>] [-t <versioning-table>] 
+     [-i <initial-version>]
+
+Options:
+-c	specifies the connection string of the database to connect to
+	defaults to the "default" connection string in dbup.config
+
+-f	the path to the directory containing the sql files to use in the migration
+	defaults to "./db"
+
+-t	the name of the table to create and use for tracking db version info
+	defaults to "dbup"
+
+-i	the initial version (only use on existing databases which are currently 
+	unversioned) this specifies the initial file to run on the db
+
+For more information, see: https://github.com/chrisdavies/dbup
