@@ -1,0 +1,8 @@
+CREATE TABLE foo (
+    id integer primary key,
+    name varchar(50)
+);
+
+GO
+
+INSERT INTO foo (id, name) VALUES (1, 'Chris Davies');

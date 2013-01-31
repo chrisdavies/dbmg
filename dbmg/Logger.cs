@@ -1,4 +1,4 @@
-﻿namespace DBMG
+﻿namespace dbmg
 {
     using System;
 

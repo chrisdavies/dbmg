@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{833999
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbmg", "dbmg\dbmg.csproj", "{AF808505-AA42-4BA3-8860-0895D48C2384}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dbmg.Tests", "dbmg.Tests\dbmg.Tests.csproj", "{9BD27C3B-3190-4CC0-A92C-DE0074592019}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{AF808505-AA42-4BA3-8860-0895D48C2384}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF808505-AA42-4BA3-8860-0895D48C2384}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF808505-AA42-4BA3-8860-0895D48C2384}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BD27C3B-3190-4CC0-A92C-DE0074592019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BD27C3B-3190-4CC0-A92C-DE0074592019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BD27C3B-3190-4CC0-A92C-DE0074592019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BD27C3B-3190-4CC0-A92C-DE0074592019}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

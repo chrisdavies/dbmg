@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace dbmg.Properties {
+namespace dbmg.Tests.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace dbmg.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("dbmg.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("dbmg.Tests.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,24 +61,30 @@ namespace dbmg.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to dbmg -c &lt;connection-string&gt; [-f &lt;path-to-sql&gt;] [-t &lt;versioning-table&gt;] 
-        ///     [-i &lt;initial-file&gt; | -a &lt;after-file&gt;] [-p &lt;db-provider&gt;]
+        ///   Looks up a localized string similar to CREATE TABLE foo (
+        ///    id integer primary key,
+        ///    name varchar(50)
+        ///);
         ///
-        ///Options:
-        ///-c	specifies the connection string of the database to connect to
-        ///	defaults to the &quot;default&quot; connection string in dbmg.config
+        ///GO
         ///
-        ///-f	the path to the directory containing the sql files to use in the migration
-        ///	defaults to &quot;./db&quot;
-        ///
-        ///-t	the name of the table to create and use for tracking db version info
-        ///	defaults to &quot;dbmg&quot;
-        ///
-        ///-i	the initial file overrides version [rest of string was truncated]&quot;;.
+        ///INSERT INTO foo (id, name) VALUES (1, &apos;Chris Davies&apos;);.
         /// </summary>
-        internal static string Instructions {
+        internal static string Sql000 {
             get {
-                return ResourceManager.GetString("Instructions", resourceCulture);
+                return ResourceManager.GetString("Sql000", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO foo (id, name) VALUES (2, &apos;G.K. Chesterton&apos;);
+        ///INSERT INTO foo (id, name) VALUES (3, &apos;C.S. Lewis&apos;);
+        ///INSERT INTO foo (id, name) VALUES (4, &apos;J.R.R. Tolkien&apos;);
+        ///INSERT INTO foo (id, name) VALUES (5, &apos;Thomas Merton&apos;);.
+        /// </summary>
+        internal static string Sql001 {
+            get {
+                return ResourceManager.GetString("Sql001", resourceCulture);
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace DBMG
+﻿namespace dbmg
 {
     using System;
     using System.Collections.Generic;
@@ -12,7 +12,8 @@
             {
                 { "postgres", () => new Npgsql.NpgsqlConnection() },
                 { "mysql", () => new MySql.Data.MySqlClient.MySqlConnection() },
-                { "mssql", () => new System.Data.SqlClient.SqlConnection() }
+                { "mssql", () => new System.Data.SqlClient.SqlConnection() },
+                { "sqlite", () => new System.Data.SQLite.SQLiteConnection() }
             };
 
             Func<IDbConnection> getConnection;

@@ -1,4 +1,4 @@
-﻿namespace DBMG
+﻿namespace dbmg
 {
     using System;
     using System.Collections.Generic;
@@ -21,10 +21,10 @@
             }
         }
 
-        public ProgramArgs()
+        public ProgramArgs(params string[] args)
         {
             SetDefaults();
-            InitFromCommandLine();
+            InitFromCommandLine(args);
             Validate();
         }
 
@@ -33,6 +33,31 @@
             Provider = "postgres";
             MigrationsPath = "./db";
             TableName = "dbmg";
+        }
+
+        private void InitFromCommandLine(string[] args)
+        {
+            var options = new Dictionary<string, Action<string>>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "-c", (val) => ConnectionString = val },
+                { "-f", (val) => MigrationsPath = val },
+                { "-t", (val) => TableName = val },
+                { "-i", (val) => InitialFile = val },
+                { "-p", (val) => Provider = val },
+                { "-a", (val) => AfterFile = val }
+            };
+            
+            for (var i = 0; i < args.Length - 1; i += 2)
+            {
+                var arg = args[i];
+                Action<string> setProperty;
+                if (!options.TryGetValue(arg, out setProperty))
+                {
+                    throw new ArgumentException(string.Format("Unknown argument {0}.", arg));
+                }
+
+                setProperty(args[i + 1]);
+            }
         }
 
         private void Validate()
@@ -55,33 +80,6 @@
             if (!string.IsNullOrEmpty(InitialFile) && !File.Exists(InitialFilePath))
             {
                 throw new ArgumentException("Could not find file " + InitialFilePath);
-            }
-        }
-
-        private void InitFromCommandLine()
-        {
-            var options = new Dictionary<string, Action<string>>(StringComparer.OrdinalIgnoreCase)
-            {
-                { "-c", (val) => ConnectionString = val },
-                { "-f", (val) => MigrationsPath = val },
-                { "-t", (val) => TableName = val },
-                { "-i", (val) => InitialFile = val },
-                { "-p", (val) => Provider = val },
-                { "-a", (val) => AfterFile = val }
-            };
-
-            var args = Environment.GetCommandLineArgs();
-
-            for (var i = 1; i < args.Length - 1; i += 2)
-            {
-                var arg = args[i];
-                Action<string> setProperty;
-                if (!options.TryGetValue(arg, out setProperty))
-                {
-                    throw new ArgumentException(string.Format("Unknown argument {0}.", arg));
-                }
-
-                setProperty(args[i + 1]);
             }
         }
     }

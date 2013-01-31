@@ -16,7 +16,7 @@ Options:
 
 -a	run all files whose name is greater than <after-file>
 
--p	the database provider
+-p	the database provider (mysql, mssql, postgres, or sqlite)
 	defaults to "postgres"
 
 For more information, see: https://github.com/chrisdavies/dbmg

@@ -1,0 +1,4 @@
+INSERT INTO foo (id, name) VALUES (2, 'G.K. Chesterton');
+INSERT INTO foo (id, name) VALUES (3, 'C.S. Lewis');
+INSERT INTO foo (id, name) VALUES (4, 'J.R.R. Tolkien');
+INSERT INTO foo (id, name) VALUES (5, 'Thomas Merton');
