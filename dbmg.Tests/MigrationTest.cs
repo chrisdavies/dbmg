@@ -13,6 +13,7 @@
     {
         public MigrationTest()
         {
+            SqlScripts.Dir = "db";
             Database.Clear();
             SqlScripts.Clear();
         }
@@ -47,7 +48,7 @@
         }
 
         [Fact]
-        public void Option_initial_file_includes_the_specified_file()
+        public void Option_i_includes_the_specified_file()
         {
             SqlScripts.Write(Resources.Sql000);
             App.Run();
@@ -57,7 +58,7 @@
         }
         
         [Fact]
-        public void Option_after_file_excludes_the_specified_file_and_marks_db_with_proper_version()
+        public void Option_a_excludes_the_specified_file_and_marks_db_with_proper_version()
         {
             SqlScripts.Write(Resources.Sql000);
             App.Run();
@@ -69,6 +70,28 @@
             SqlScripts.Write(Resources.Sql000, Resources.Sql001, Resources.Sql002, Resources.Sql003);
             App.Run();
             Database.AssertIds(new int[] { 1, 7 });
+        }
+
+        [Fact]
+        public void Option_d_makes_the_app_use_a_different_directory()
+        {
+            SqlScripts.Dir = "alt";
+            SqlScripts.Clear();
+            SqlScripts.Write(Resources.Sql000);
+            App.Run("-d", "alt");
+            SqlScripts.AssertVersion000();
+        }
+
+        /// <summary>
+        /// A poor-man's test, since I don't want our test machines to require postgres,
+        /// mysql, and mssql instances.
+        /// </summary>
+        [Fact]
+        public void Option_p_changes_the_provider_being_used()
+        {
+            DbConnectionFactory.Load("mssql").GetType().Name.ShouldEqual("SqlConnection");
+            DbConnectionFactory.Load("mysql").GetType().Name.ShouldEqual("MySqlConnection");
+            DbConnectionFactory.Load("postgres").GetType().Name.ShouldEqual("NpgsqlConnection");
         }
     }
 }

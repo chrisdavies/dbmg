@@ -40,7 +40,7 @@
             var options = new Dictionary<string, Action<string>>(StringComparer.OrdinalIgnoreCase)
             {
                 { "-c", (val) => ConnectionString = val },
-                { "-f", (val) => MigrationsPath = val },
+                { "-d", (val) => MigrationsPath = val },
                 { "-t", (val) => TableName = val },
                 { "-i", (val) => InitialFile = val },
                 { "-p", (val) => Provider = val },

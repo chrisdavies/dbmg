@@ -5,7 +5,7 @@ Options:
 -c	specifies the connection string of the database to connect to
 	defaults to the "default" connection string in dbmg.config
 
--f	the path to the directory containing the sql files to use in the migration
+-d	the path to the directory containing the sql files to use in the migration
 	defaults to "./db"
 
 -t	the name of the table to create and use for tracking db version info

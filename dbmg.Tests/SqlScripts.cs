@@ -9,7 +9,13 @@
 
     static class SqlScripts
     {
-        public const string Dir = "db";
+        private static string dir = "db";
+
+        public static string Dir
+        {
+            get { return dir; }
+            set { dir = value; }
+        }
 
         public static void Clear()
         {
