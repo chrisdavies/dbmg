@@ -14,5 +14,3 @@ deploy/*
 *.debug.css
 *.sdf
 _ReSharper.HF/*
-x86/
-x64/

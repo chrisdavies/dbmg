@@ -1,12 +1,15 @@
 ﻿namespace dbmg.Tests
 {
     using Should;
+    using System.Linq;
 
     static class App
     {
-        public static void Run() 
+        public static void Run(params string[] args) 
         {
-            dbmg.Program.Main("-c", Database.ConnStr, "-p", "sqlite").ShouldEqual(0);
+            args = new string[] { "-c", Database.ConnStr, "-p", "sqlite" }
+                .Union(args ?? new string[] { }).ToArray();
+            dbmg.Program.Main(args).ShouldEqual(0);
         }
     }
 }

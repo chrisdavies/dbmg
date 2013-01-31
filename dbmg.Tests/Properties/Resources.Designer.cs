@@ -87,5 +87,23 @@ namespace dbmg.Tests.Properties {
                 return ResourceManager.GetString("Sql001", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO foo (id, name) VALUES (6, &apos;Hello World&apos;);.
+        /// </summary>
+        internal static string Sql002 {
+            get {
+                return ResourceManager.GetString("Sql002", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO foo (id, name) VALUES (7, &apos;Cookie Monster&apos;);.
+        /// </summary>
+        internal static string Sql003 {
+            get {
+                return ResourceManager.GetString("Sql003", resourceCulture);
+            }
+        }
     }
 }

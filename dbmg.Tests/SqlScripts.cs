@@ -3,34 +3,40 @@
     using Dapper;
     using dbmg.Tests.Properties;
     using Should;
+    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
 
     static class SqlScripts
     {
+        public const string Dir = "db";
+
         public static void Clear()
         {
-            if (Directory.Exists("db"))
+            if (Directory.Exists(Dir))
             {
-                Directory.Delete("db", true);
+                Directory.Delete(Dir, true);
             }
 
-            Directory.CreateDirectory("db");
+            Directory.CreateDirectory(Dir);
         }
 
-        public static void WriteInitial()
+        public static void Write(params string[] files)
         {
-            Clear();
-            File.WriteAllText("db/000.sql", Resources.Sql000);
+            for (var i = 0; i < files.Length; ++i)
+            {
+                File.WriteAllText(Path.Combine(Dir, i.ToString("0000") + ".sql"), files[i]);
+            }
         }
 
-        public static void VerifyInitial()
+        public static void AssertVersion000()
         {
-            Database.Run(db => {
-                var recs = db.Query("SELECT * FROM foo");
-                recs.Count().ShouldEqual(1);
-                ((string)recs.First().name).ShouldEqual("Chris Davies");
-            });
+            Database.AssertIds(new int[] { 1 });
+        }
+
+        public static void AssertVersion001()
+        {
+            Database.AssertIds(new int[] { 1, 2, 3, 4, 5 });
         }
     }
 }

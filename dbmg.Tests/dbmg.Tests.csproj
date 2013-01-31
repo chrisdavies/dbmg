@@ -61,7 +61,7 @@
     <Compile Include="App.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="Migrations.cs" />
+    <Compile Include="MigrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -84,12 +84,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sql001.txt" />
-    <Content Include="x64\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="x86\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="Resources\Sql002.txt" />
+    <None Include="Resources\Sql003.txt" />
+    <Content Include="x64\SQLite.Interop.dll" />
+    <Content Include="x86\SQLite.Interop.dll" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dbmg\dbmg.csproj">

@@ -11,8 +11,7 @@ Options:
 -t	the name of the table to create and use for tracking db version info
 	defaults to "dbmg"
 
--i	the initial file overrides versioning and runs the file specified by
-	<initial-file> and all subsequent files
+-i	run all files whose name is greater than or equal to <initial-file>
 
 -a	run all files whose name is greater than <after-file>
 
