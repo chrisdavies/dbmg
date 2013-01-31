@@ -18,7 +18,7 @@ The current version of a database is tracked by a table called "dbmg" (again, th
 
 ## Supported databases
 
-The default database is postgres, but you can also specify the -p commandline option.  Possible values are "mssql" for Microsoft sql server, and "mysql" for my sql.
+The default database is postgres, but you can also specify the -p commandline option.  Possible values are "mssql", "mysql", "postgres", "sqlite".
 
 Most defaults can be overriden. Run dbmg with no parameters in order to see the possible commandline options.
 
