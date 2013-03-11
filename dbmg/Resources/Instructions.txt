@@ -1,4 +1,4 @@
-dbmg -c <connection-string> [-f <path-to-sql>] [-t <versioning-table>] 
+dbmg -c <connection-string> [-d <path-to-sql>] [-t <versioning-table>] 
      [-i <initial-file> | -a <after-file>] [-p <db-provider>]
 
 Options:
